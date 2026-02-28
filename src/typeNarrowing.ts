@@ -99,4 +99,13 @@ function MakeChai(order:Chai)
     }
 }
 
-//function brew()
+function brew(order:MasalaChai | GingerChai)
+{
+    if("spicelevel" in order)
+    {
+        //then we can be sure that it is masala chai as only that type object has spice level as key
+    }
+}
+// function isStringArray(arr:unknown):arr is string[]{//in case of unknown we need to tell the datatype while defining,constructing,calling,etc
+// return
+// }
