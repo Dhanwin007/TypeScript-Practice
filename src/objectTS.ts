@@ -58,6 +58,7 @@ type Order = {
     addresses:Address[]
 }
 
+//Partial<T>:=>allows you to partially update by passing any or none values as objects in parameters
 type Chai = {
     name:string;
     price:number;
@@ -73,7 +74,7 @@ updateChai({price:25});
 updateChai({isHot:false});
 
 updateChai({});//this sometimes creates issues in codebase
-
+//Required<T>:=> the object passed should contain all the properties defined in the datatype object
 type ChaiOrder ={
     name?:string;
     quantity?:number
@@ -84,3 +85,30 @@ const placeOrder = (order:Required<ChaiOrder>)=>{
 }
 
 placeOrder({name:"Masala Chai",quantity:2})//both the properties specified by the type has given required utility class used here
+//Pick<T,item1,item2>:=>helps to pcick exactly what property fields are we expecting from the parameters 
+type Chai2 = {
+    name:string;
+    price:number;
+    isHot:boolean;
+    ingredients:string[]
+}
+
+type BasicChaiInfo = Pick<Chai2,"name"|"price">;//used less but required to know
+
+const chaiInfo:BasicChaiInfo = {
+    name:"adrak",
+    price:50,
+   
+}
+//Omit<T,item>:=>this helps in creatin the datatype by telling what has not be picked or left out as is secretIngredients
+type ChaiNew = {
+    name:string;
+    price:number;
+    isHot:boolean;
+    secretIngredients:string
+}
+
+type PublicChai = Omit<Chai,"secretIngredients">;
+
+
+
