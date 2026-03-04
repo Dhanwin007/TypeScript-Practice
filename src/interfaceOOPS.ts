@@ -65,3 +65,25 @@ const ratings:ChaiRatings={
     "adrak":5.0
 }
 
+/*interfaces actually merge in the sense that multiple interfaces(with same name) with different properties can be defined but the object/variable
+that implements it has to include all the properties of all the interface this provides flexibilty to include any field later*/
+
+interface User{
+    name:string
+}
+interface User{
+    age:number
+}
+const u:User={
+    name:"Dhanwin",
+    age:21
+}
+
+//extending interfaces
+//this is most common alternative of the above
+
+interface A{a:string};
+interface B{b:string};
+
+interface C extends A,B{}
+
